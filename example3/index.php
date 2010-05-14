@@ -5,7 +5,7 @@ include 'UserController.class.php';
 
 $rest = new RestServer($_GET['q']) ;
 
-$rest->addMap("GET","/?users","UserController::list");
+$rest->addMap("GET","/?users","UserController::listing");
 $rest->addMap("POST","/?users","UserController::insert");
 $rest->addMap("GET","/?users/[0-9]*","UserController::view");
 

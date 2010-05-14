@@ -5,10 +5,16 @@ class UserController implements RestController {
         return $rest;
     }
 
-    public function list(RestServer $rest) {
-        $pdo = new PDO("mysql:localhost","user","pass");
-        $q = $pdo->select("select * from users");
-        $users= $q->fetchObject();
+    public function listing(RestServer $rest) {
+        //$pdo = new PDO("mysql:192.168.254.1","root","11buntU");
+        //$q = $pdo->select("select * from users");
+        //$users= $q->fetchObject();
+
+        $user = new StdClass;
+        $user->id = '1';
+        $user->name = 'John Doe';
+
+        $users[] = $user;
         $r = "<ul>";
         foreach($users as $user) {
             $r .= "<li><a href='?q=/users/".$user->id."'>".$user->name."</a></li>";
